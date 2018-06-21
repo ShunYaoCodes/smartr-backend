@@ -7,7 +7,9 @@ class Api::V1::UsersController < ApplicationController
   def show
   end
 
-  def creat
+  def create
+    @user = User.create(name: params['name'])
+    render json: @user
   end
 
   def update

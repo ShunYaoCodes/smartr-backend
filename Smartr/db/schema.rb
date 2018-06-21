@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_18_194110) do
+ActiveRecord::Schema.define(version: 2018_06_20_134417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,6 +18,17 @@ ActiveRecord::Schema.define(version: 2018_06_18_194110) do
   create_table "score_records", force: :cascade do |t|
     t.integer "score"
     t.integer "time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trivia", force: :cascade do |t|
+    t.string "category"
+    t.string "q_type"
+    t.string "difficulty"
+    t.string "question"
+    t.string "correct_answer"
+    t.string "incorrect_answers"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
