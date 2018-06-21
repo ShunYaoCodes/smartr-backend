@@ -11,7 +11,7 @@ class Api::V1::TriviaController < ApplicationController
   end
 
   def create
-    uri = URI.parse("https://opentdb.com/api.php?amount=1&category=11&difficulty=#{params['difficulty']}&type=multiple")
+    uri = URI.parse("https://opentdb.com/api.php?amount=1&category=#{params['category']}&difficulty=#{params['difficulty']}&type=multiple")
     response = Net::HTTP.get_response(uri)
     json = JSON.parse(response.body)
     trivia = json['results'][0]
